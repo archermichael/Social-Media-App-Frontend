@@ -1,0 +1,12 @@
+.feedContainer {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 680px;
+    align-items: center;
+    justify-content: center;
+}
+
+app-post {
+    width: 96%;
+    max-width: 680px;
+}

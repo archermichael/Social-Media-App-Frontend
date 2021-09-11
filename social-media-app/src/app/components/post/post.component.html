@@ -1,0 +1,19 @@
+<div class="post">
+    <div class="post-head">
+        <div class="profile-image">
+            <img [src]="post.user.profileImage" class="profile-image">
+        </div>
+        <div class="flex-column">
+            <span class="post-author">{{ post.user.firstName + " " + post.user.lastName }}</span>
+            <span class="post-date">{{ post.createdDate.toDateString() }}</span>
+        </div>
+    </div>
+    <hr/>
+    <p class="post-message">{{ post.message }}</p>
+    <div *ngIf="post.images">
+        <img class="post-image" *ngFor="let image of post.images" [src]="image">
+    </div>
+    <hr/>
+    <fa-icon [icon]="faThumbsUp" class="text-primary fa-lg"></fa-icon>
+    <span class="post-likes" *ngIf="post.likes">{{ post.likes }}</span>
+</div>

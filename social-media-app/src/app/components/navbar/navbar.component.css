@@ -1,0 +1,21 @@
+input.form-control.mr-sm-2 {
+    border-radius: 20px;
+    background-color: #f0f2f5 !important;
+    padding: 0 30px;
+    height: 40px;
+    border: none;
+    padding-bottom: 3px;
+}
+
+nav {
+    position: fixed;
+    width: 100%;
+}
+
+fa-icon {
+    position: absolute;
+    bottom: 28%;
+    left: 24px;
+    z-index: 2;
+    color: rgba(0,0,0,.2);
+}
