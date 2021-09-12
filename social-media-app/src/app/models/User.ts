@@ -2,12 +2,12 @@ import { Post } from "./Post";
 
 export interface User {
     id?: number,
-    firstName?: string,
-    lastName?: string,
-    email?: string,
+    userFirstName?: string,
+    userLastName?: string,
+    userEmail?: string,
     username: string,
     password: string,
-    profileDescription?: string,
-    profileImage?: string,
-    posts?: Post[]
+    userProfileDescription?: string,
+    userProfileImage?: string,
+    userPostList?: Post[]
 }

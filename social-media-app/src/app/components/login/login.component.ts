@@ -17,6 +17,6 @@ export class LoginComponent implements OnInit {
   }
 
   login(): void {
-    this.userService.login({username: this.username, password: this.password})
+    this.userService.login({username: this.username, password: this.password}).subscribe(data => console.log(data))
   }
 }
