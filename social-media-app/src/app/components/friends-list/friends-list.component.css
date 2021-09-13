@@ -1,0 +1,74 @@
+.friend-feed {
+    display: none;
+    position: fixed;
+    left: 0;
+    top: 80px;
+    overflow: hidden;
+}
+
+.friend-feed:hover {
+    overflow-y: scroll;
+}
+
+.friend-card {
+    display: flex;
+    border: none;
+    border-radius: 6px;
+    align-items: center;
+    height: 52px;
+    transition: background-color .2s ease-in-out;
+    margin-left: 20px;
+    width: 264px;
+}
+
+.friend-card:hover {
+    background-color: rgba(0,0,0,.05);
+}
+
+.friend-card p {
+    margin: 0;
+    margin-right: 6px;
+    font-weight: 500;
+}
+
+.friend-card img {
+    margin: 0 12px;
+    border: none;
+    border-radius: 50%;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-track:hover {
+    background-color: #CED0D4;
+}
+
+@media only screen and (min-width: 970px){
+    .friend-feed {
+        display: block;
+        position: fixed;
+    }
+
+    .friend-card {
+        width: 260px;
+    }
+}
+
+@media only screen and (min-width: 1150px){
+    .friend-feed {
+        position: fixed;
+        margin-top: 0;
+    }
+}
+
+@media only screen and (min-width: 1396px){
+    .friend-card {
+        width: 340px;
+    }
+}

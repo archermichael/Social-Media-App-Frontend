@@ -13,6 +13,8 @@ import { PostFeedComponent } from './components/post-feed/post-feed.component';
 import { PostComponent } from './components/post/post.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { HomePageComponent } from './components/home-page/home-page.component';
+import { FriendsListComponent } from './components/friends-list/friends-list.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     RegisterModalComponent,
     PostFeedComponent,
     PostComponent,
-    NavbarComponent
+    NavbarComponent,
+    HomePageComponent,
+    FriendsListComponent
   ],
   imports: [
     BrowserModule,

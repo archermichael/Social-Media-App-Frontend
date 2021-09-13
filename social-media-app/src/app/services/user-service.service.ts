@@ -7,15 +7,19 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class UserService {
-  private apiUrl = 'http://localhost:8080/user'
+  private apiUrl = 'http://localhost:9000/api/user'
 
   constructor(private http: HttpClient) { }
 
-  login(user: User): Observable<User> {
-    return this.http.post<User>('http://localhost:8080/login', user)
+  login(user: User): Observable<any> {
+    return this.http.post<User>('http://localhost:9000/api/login', user)
   }
 
-  register(user: User): Observable<User> {
+  register(user: User): Observable<any> {
     return this.http.post<User>(this.apiUrl, user)
+  }
+
+  getFriends(): Observable<any> {
+    return this.http.get<User[]>(this.apiUrl)
   }
 }

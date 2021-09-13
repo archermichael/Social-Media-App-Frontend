@@ -6,6 +6,7 @@
                 <h2 class="fs-3 fw-lighter">Connect with literally everyone, ever.</h2>
             </div>
             <div class="login">
+                <div *ngIf="loginFailed" class="alert alert-danger">Login Failed</div>
                 <input type="text" name="username" placeholder="Username" [(ngModel)]="username"/>
                 <input type="password" name="password" placeholder="Password" [(ngModel)]="password"/>
                 <button class="btn btn-primary" (click)="login()">Log In</button>

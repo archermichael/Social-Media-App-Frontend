@@ -1,0 +1,22 @@
+.page-body {
+    display: flex;
+    background-color: #f0f2f5;
+    justify-content: center;
+    padding-top: 70px;
+}
+
+app-friends-list {
+    max-height: 100vh;
+}
+
+@media only screen and (min-width: 970px){
+    .page-body {
+        justify-content: space-between;
+    }
+}
+
+@media only screen and (min-width: 1215px){
+    .page-body {
+        justify-content: center;
+    }
+}

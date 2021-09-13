@@ -1,0 +1,7 @@
+<div class="friend-feed">
+    <div class="friend-card" *ngFor="let user of users" > 
+        <img src={{user.userProfileImage}} /> <!-- this will change to user.userProfileImage once image uploads are added -->
+        <p>{{ user.userFirstName }}</p>
+        <p>{{ user.userLastName }}</p>
+    </div>
+</div>

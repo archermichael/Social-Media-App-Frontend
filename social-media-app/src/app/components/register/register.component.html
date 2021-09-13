@@ -9,12 +9,13 @@
 </div>
 <div class="modal-body">
   <div class="register">
+      <div *ngIf="registerFailed" class="alert alert-danger">Username is taken</div>
       <div>
         <input type="text" name="firstName" placeholder="First name" [(ngModel)]="firstName">
         <input type="text" name="lastName" placeholder="Last name" [(ngModel)]="lastName">
       </div>
       <input type="text" name="username" placeholder="Username" [(ngModel)]="username">
-      <input type="text" name="password" placeholder="Password" [(ngModel)]="password">
+      <input type="password" name="password" placeholder="Password" [(ngModel)]="password">
       <input type="text" name="email" placeholder="Email" [(ngModel)]="email">
   </div>
 </div>

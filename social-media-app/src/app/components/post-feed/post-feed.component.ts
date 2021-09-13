@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Post } from 'src/app/models/Post';
-import { PostService } from 'src/app/services/post-service.service';
 
 @Component({
   selector: 'app-post-feed',
@@ -8,13 +7,13 @@ import { PostService } from 'src/app/services/post-service.service';
   styleUrls: ['./post-feed.component.css']
 })
 export class PostFeedComponent implements OnInit {
-  posts: Post[] = [];
+  @Input() posts: Post[] = [];
   page: number = 1;
 
-  constructor(private postService: PostService) { }
+  constructor() { }
 
   ngOnInit(): void {
-    this.posts = this.postService.getAllPosts();
+    
   }
 
 }
