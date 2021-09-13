@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
+import { UserService } from 'src/app/services/user-service.service';
 
 @Component({
   selector: 'app-navbar',
@@ -9,9 +11,13 @@ import { faSearch } from '@fortawesome/free-solid-svg-icons';
 export class NavbarComponent implements OnInit {
   faSearch = faSearch;
   
-  constructor() { }
+  constructor(private userService: UserService, private router: Router) { }
 
   ngOnInit(): void {
   }
 
+  logout(): void {
+    this.userService.logout()
+    this.router.navigateByUrl('/')
+  }
 }

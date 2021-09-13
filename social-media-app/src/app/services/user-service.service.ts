@@ -15,6 +15,10 @@ export class UserService {
     return this.http.post<User>('http://localhost:9000/api/login', user)
   }
 
+  logout(): Observable<any> {
+    return this.http.post<any>('http://localhost:9000/api/logout', {})
+  }
+
   register(user: User): Observable<any> {
     return this.http.post<User>(this.apiUrl, user)
   }

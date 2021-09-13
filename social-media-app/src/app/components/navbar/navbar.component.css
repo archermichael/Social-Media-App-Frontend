@@ -12,6 +12,10 @@ nav {
     width: 100%;
 }
 
+a {
+    cursor: pointer;
+}
+
 fa-icon {
     position: absolute;
     bottom: 28%;
