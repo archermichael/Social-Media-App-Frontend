@@ -1,10 +1,13 @@
+import { Like } from "./Like";
+import { PostImage } from "./PostImage";
 import { User } from "./User";
 
 export interface Post {
-    id?: number,
-    createdDate: Date,
-    message: string,
+    postId?: number,
+    postCreatedDate: Date,
+    postMessage: string,
+    userIdFk?: number,
     user: User,
-    likes?: number,
-    images?: string[]
+    likes?: Like[],
+    postImageList?: PostImage[]
 }

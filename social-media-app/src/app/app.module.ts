@@ -15,6 +15,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { HomePageComponent } from './components/home-page/home-page.component';
 import { FriendsListComponent } from './components/friends-list/friends-list.component';
+import { UserProfileComponent } from './components/user-profile/user-profile.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { FriendsListComponent } from './components/friends-list/friends-list.com
     PostComponent,
     NavbarComponent,
     HomePageComponent,
-    FriendsListComponent
+    FriendsListComponent,
+    UserProfileComponent
   ],
   imports: [
     BrowserModule,

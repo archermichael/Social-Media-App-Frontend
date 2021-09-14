@@ -5,13 +5,13 @@
         </div>
         <div class="flex-column">
             <span class="post-author">{{ post.user.userFirstName + " " + post.user.userLastName }}</span>
-            <span class="post-date">{{ post.createdDate.toDateString() }}</span>
+            <span class="post-date">{{ post.postCreatedDate }}</span>
         </div>
     </div>
     <hr/>
-    <p class="post-message">{{ post.message }}</p>
-    <div *ngIf="post.images">
-        <img class="post-image" *ngFor="let image of post.images" [src]="image">
+    <p class="post-message">{{ post.postMessage }}</p>
+    <div *ngIf="post.postImageList">
+        <img class="post-image" *ngFor="let image of post.postImageList" [src]="image.postImageUrl">
     </div>
     <hr/>
     <fa-icon [icon]="faThumbsUp" class="text-primary fa-lg"></fa-icon>

@@ -16,6 +16,7 @@ export class UserService {
   }
 
   logout(): Observable<any> {
+    sessionStorage.removeItem('loggedInUser')
     return this.http.post<any>('http://localhost:9000/api/logout', {})
   }
 

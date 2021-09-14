@@ -3,6 +3,7 @@
     background-color: #f0f2f5;
     justify-content: center;
     padding-top: 70px;
+    min-height: 100vh;
 }
 
 app-friends-list {
