@@ -15,11 +15,13 @@ export class UserProfileComponent implements OnInit {
   posts: Post[] = [];
   faCamera = faCamera;
   pathId: number;
-  currentProfileUser: User;
+  currentProfileUser: User = {userId: 0, username: "", password: ""};
+  loggedInUser: User;
 
   constructor(private route: ActivatedRoute, private userService: UserService, private postService: PostService) { }
 
   ngOnInit(): void {
+    this.loggedInUser = JSON.parse(sessionStorage.getItem('loggedInUser') || '{}')
     this.pathId = Number(this.route.snapshot.paramMap.get('id'))
     this.userService.getFriendById(this.pathId).subscribe((res) => {
       this.currentProfileUser = res.data

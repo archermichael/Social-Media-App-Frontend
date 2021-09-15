@@ -4,6 +4,7 @@ import { PostImage } from 'src/app/models/PostImage';
 import { User } from 'src/app/models/User';
 import { PostService } from 'src/app/services/post-service.service';
 import { UploadFileServiceService } from 'src/app/services/upload-file-service.service';
+import { faImages, faPlusSquare } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-post-feed',
@@ -11,6 +12,8 @@ import { UploadFileServiceService } from 'src/app/services/upload-file-service.s
   styleUrls: ['./post-feed.component.css']
 })
 export class PostFeedComponent implements OnInit {
+  faImages = faImages;
+  faPlusSquare = faPlusSquare;
   @Input() posts: Post[] = [];
   @Input() homePage: boolean = false;
   currentUser: User;
@@ -59,4 +62,7 @@ export class PostFeedComponent implements OnInit {
     )
   }
 
+  pageChanged(): void {
+    console.log("page changed")
+  }
 }

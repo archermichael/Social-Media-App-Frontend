@@ -16,6 +16,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { HomePageComponent } from './components/home-page/home-page.component';
 import { FriendsListComponent } from './components/friends-list/friends-list.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
+import { UpdateInfoFormComponent } from './components/update-info-form/update-info-form.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { UserProfileComponent } from './components/user-profile/user-profile.com
     NavbarComponent,
     HomePageComponent,
     FriendsListComponent,
-    UserProfileComponent
+    UserProfileComponent,
+    UpdateInfoFormComponent
   ],
   imports: [
     BrowserModule,

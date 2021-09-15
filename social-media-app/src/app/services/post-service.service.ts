@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Post } from '../models/Post';
 import { PostImage } from '../models/PostImage';
+import { Like } from '../models/Like';
 
 @Injectable({
   providedIn: 'root'
@@ -26,5 +27,9 @@ export class PostService {
 
   getPostsByUserId(id: number): Observable<any> {
     return this.http.get<Post[]>(this.apiUrl + "/" + id)
+  }
+
+  likePost(like: Like): Observable<any> {
+    return this.http.post<Like>('http://localhost:9000/api/likes', like)
   }
 }

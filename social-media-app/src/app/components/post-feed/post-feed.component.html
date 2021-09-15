@@ -1,21 +1,27 @@
 <div class="feedContainer">
     <div class="new-post-form" *ngIf="homePage">
-        <div>
-            <img src={{currentUser.userProfileImage}}/>
-            <input type="text" [(ngModel)]="newPostMessage" placeholder="What's on your mind, {{currentUser.userFirstName}} ?"/>
+        <div class="new-post-input">
+            <img class="profile-pic" src={{currentUser.userProfileImage}} routerLink="/user/{{currentUser.userId}}"/>
+            <input class="round-input" type="text" [(ngModel)]="newPostMessage" placeholder="What's on your mind, {{currentUser.userFirstName}}?"/>
         </div>
         <input style="display: none" 
                type="file" 
                multiple (change)="onFileSelected($event)" 
                accept="image/*"
-               #fileInput/>
-        <div class="btn btn-success" (click)="fileInput.click()">
-            Select Files
-        </div>
-        <div class="btn-btn-success" (click)="createPost()">
-            Create Post
+               #fileInput
+        />
+        <hr class="separator"/>
+        <div class="flex-buttons">
+            <div class="form-button-div">
+                <fa-icon class="text-primary" [icon]="faImages" (click)="fileInput.click()"></fa-icon>
+                <p>Photo/Image</p>
+            </div>
+            <div class="form-button-div">
+                <fa-icon class="text-success" [icon]="faPlusSquare" (click)="createPost()"></fa-icon>
+                <p>Create Post</p>
+            </div>
         </div>
     </div>
     <app-post *ngFor="let post of posts | slice: (page-1) * pageSize : page * pageSize" [post]="post"></app-post>
-    <ngb-pagination  *ngIf="posts.length > 20" [collectionSize]="posts.length" [(page)]="page" [maxSize]="5" [rotate]="true" [ellipses]="false" [boundaryLinks]="true" [pageSize]="20"></ngb-pagination>
+    <ngb-pagination (pageChange)="pageChanged()" *ngIf="posts.length > 20" [collectionSize]="posts.length" [(page)]="page" [maxSize]="5" [rotate]="true" [ellipses]="false" [boundaryLinks]="true" [pageSize]="20"></ngb-pagination>
 </div>
