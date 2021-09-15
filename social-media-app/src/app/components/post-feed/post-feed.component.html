@@ -16,6 +16,6 @@
             Create Post
         </div>
     </div>
-    <app-post *ngFor="let post of posts" [post]="post"></app-post>
-    <ngb-pagination  [collectionSize]="posts.length" [(page)]="page" [maxSize]="5" [rotate]="true" [ellipses]="false" [boundaryLinks]="true" [pageSize]="20"></ngb-pagination>
+    <app-post *ngFor="let post of posts | slice: (page-1) * pageSize : page * pageSize" [post]="post"></app-post>
+    <ngb-pagination  *ngIf="posts.length > 20" [collectionSize]="posts.length" [(page)]="page" [maxSize]="5" [rotate]="true" [ellipses]="false" [boundaryLinks]="true" [pageSize]="20"></ngb-pagination>
 </div>

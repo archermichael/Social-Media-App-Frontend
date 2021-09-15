@@ -27,4 +27,8 @@ export class UserService {
   getFriends(): Observable<any> {
     return this.http.get<User[]>(this.apiUrl)
   }
+
+  getFriendById(id: number): Observable<any> {
+    return this.http.get<User>(this.apiUrl + "/" + id)
+  }
 }

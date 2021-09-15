@@ -18,6 +18,7 @@ export class PostFeedComponent implements OnInit {
   newPostMessage: string = '';
   selectedFiles: FileList;
   postImageList: PostImage[] = [];
+  pageSize: number = 20;
 
   constructor(private uploadFileService: UploadFileServiceService, private postService: PostService) { }
 

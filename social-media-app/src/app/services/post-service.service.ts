@@ -23,4 +23,8 @@ export class PostService {
   createPostImage(postImage: PostImage): Observable<any> {
     return this.http.post<PostImage>('http://localhost:9000/api/postImage', postImage)
   }
+
+  getPostsByUserId(id: number): Observable<any> {
+    return this.http.get<Post[]>(this.apiUrl + "/" + id)
+  }
 }

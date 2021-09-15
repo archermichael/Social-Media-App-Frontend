@@ -1,1 +1,23 @@
-<p>user-profile works!</p>
+<app-navbar></app-navbar>
+<div class="header">
+    <div class="header-banner">
+        <div class="profile-banner" *ngIf="currentProfileUser">
+            <img class="profile-pic" src={{currentProfileUser.userProfileImage}}/>
+            <div class="camera">
+                <fa-icon [icon]="faCamera"></fa-icon>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="currentProfileUser">
+        <h1 class="profile-name">{{ (currentProfileUser.userFirstName || '') + " " + (currentProfileUser.userLastName || '') }}</h1>
+        <p *ngIf="currentProfileUser.userProfileDescription">{{ currentProfileUser.userProfileDescription }}</p>
+        <p class="add-bio">{{ currentProfileUser.userProfileDescription ? 'Edit' : 'Add Bio' }}</p>
+    </div>
+</div>
+<div class="page-body">
+    <div class="page-content">
+        <div>
+            <app-post-feed [posts]="posts"></app-post-feed>
+        </div>
+    </div>
+</div>
