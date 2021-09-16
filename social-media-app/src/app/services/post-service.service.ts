@@ -32,4 +32,8 @@ export class PostService {
   likePost(like: Like): Observable<any> {
     return this.http.post<Like>('http://localhost:9000/api/likes', like)
   }
+
+  unLikePost(id: number): Observable<any> {
+    return this.http.delete<any>(`http://localhost:9000/api/likes/${id}`)
+  }
 }

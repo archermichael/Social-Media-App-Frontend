@@ -16,7 +16,7 @@ export class PostFeedComponent implements OnInit {
   faPlusSquare = faPlusSquare;
   @Input() posts: Post[] = [];
   @Input() homePage: boolean = false;
-  currentUser: User;
+  @Input() currentUser: User;
   page: number = 1;
   newPostMessage: string = '';
   selectedFiles: FileList;
@@ -36,7 +36,7 @@ export class PostFeedComponent implements OnInit {
           this.postService.createPostImage({postImageUrl: this.postImageList[i].postImageUrl, postImageName: this.postImageList[i].postImageName, post_fk: res.data.postId}).subscribe((data) => {console.log(data)})
         }
       }
-      this.posts.unshift({postCreatedDate: new Date(), postMessage: this.newPostMessage, user: this.currentUser, postImageList: this.postImageList})
+      this.posts.unshift({postId: res.data.postId, postCreatedDate: res.data.postCreatedDate, postMessage: this.newPostMessage, user: this.currentUser, postImageList: this.postImageList})
       this.newPostMessage = ''
     })
   }

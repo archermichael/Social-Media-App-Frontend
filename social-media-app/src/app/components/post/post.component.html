@@ -1,10 +1,11 @@
 <div class="post">
     <div class="post-head">
-        <div class="profile-image">
-            <img [src]="post.user.userProfileImage" class="profile-image">
+        <div class="profile-image" routerLink="/user/{{post.user.userId}}">
+            <img [src]="changedUser.userId == post.user.userId ? changedUser.userProfileImage : post.user.userProfileImage" class="profile-image">
         </div>
         <div class="flex-column">
-            <span class="post-author">{{ post.user.userFirstName + " " + post.user.userLastName }}</span>
+            <span class="post-author">{{ changedUser.userId == post.user.userId ? 
+                      (changedUser.userFirstName + " " + changedUser.userLastName) : (post.user.userFirstName + " " + post.user.userLastName) }}</span>
             <span class="post-date">{{ post.postCreatedDate }}</span>
         </div>
     </div>
@@ -14,6 +15,12 @@
         <img class="post-image" *ngFor="let image of post.postImageList" [src]="image.postImageUrl">
     </div>
     <hr/>
-    <fa-icon [icon]="faThumbsUp" class="text-primary fa-lg" (click)="likePost()"></fa-icon>
+    <div style="display: inline-block;" *ngIf="!alreadyLiked()">
+        <fa-icon *ngIf="post.user.userId == currentUser.userId" [icon]="faThumbsUp" class="text-primary fa-lg"></fa-icon>
+        <fa-icon *ngIf="post.user.userId != currentUser.userId" [icon]="faThumbsUp" class="text-primary fa-lg" (click)="likePost()"></fa-icon>
+    </div>
+    <div style="display: inline-block;" *ngIf="alreadyLiked()">
+        <fa-icon *ngIf="post.user.userId != currentUser.userId" [icon]="faThumbsUpSolid" class="text-primary fa-lg" (click)="unLikePost()"></fa-icon>
+    </div>
     <span class="post-likes" *ngIf="post.likes">{{ post.likes.length > 0 ? post.likes.length : '' }}</span>
 </div>

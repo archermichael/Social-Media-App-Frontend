@@ -1,0 +1,20 @@
+<div class="modal-header">
+    <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  <div class="modal-body">
+    <div class="upload">
+        <input style="display: none" 
+               type="file" 
+               (change)="onFileSelected($event)" 
+               accept="image/*"
+               #fileInput
+        />
+    </div>
+  </div>
+  <div class="modal-footer">
+    <div class="form-button-div">
+        <fa-icon class="text-primary" [icon]="faImages" (click)="fileInput.click()"></fa-icon>
+        <p>Photo/Image</p>
+    </div>
+</div>

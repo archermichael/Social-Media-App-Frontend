@@ -90,6 +90,11 @@ fa-icon {
     margin-top: 10px;
 }
 
+.description, .description-btn {
+    display: flex;
+    justify-content: center;
+}
+
 app-post-feed {
     width: 100%;
     max-width: 680px;

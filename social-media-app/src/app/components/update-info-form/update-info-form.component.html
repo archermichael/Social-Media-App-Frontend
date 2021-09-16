@@ -1,3 +1,12 @@
 <div class="update-info-form">
-    <p>update info</p>
+    <label for="username">Username</label>
+    <input [class]="{editing: editingInfo}" name="username" type="text" [(ngModel)]="username" [attr.disabled]="!editingInfo ? true : null"/>
+    <label for="email">Email</label>
+    <input [class]="{editing: editingInfo}" name="email" type="text" [(ngModel)]="email" [attr.disabled]="!editingInfo ? true : null"/>
+    <label for="firstName">First Name</label>
+    <input [class]="{editing: editingInfo}" name="firstName" type="text" [(ngModel)]="firstName" [attr.disabled]="!editingInfo ? true : null"/>
+    <label for="lastName">Last Name</label>
+    <input [class]="{editing: editingInfo}" name="lastName" type="text" [(ngModel)]="lastName" [attr.disabled]="!editingInfo ? true : null"/>
+    <div *ngIf="!editingInfo" class="btn btn-success update-btn" (click)="editInfo()">Edit</div>
+    <div *ngIf="editingInfo" class="btn btn-success update-btn" (click)="saveInfo()">Save</div>
 </div>

@@ -1,5 +1,3 @@
-import { Post } from "./Post";
-
 export interface User {
     userId?: number,
     userFirstName?: string,
@@ -9,5 +7,4 @@ export interface User {
     password: string,
     userProfileDescription?: string,
     userProfileImage?: string,
-    userPostList?: Post[]
 }

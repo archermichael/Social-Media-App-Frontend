@@ -17,6 +17,8 @@ import { HomePageComponent } from './components/home-page/home-page.component';
 import { FriendsListComponent } from './components/friends-list/friends-list.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
 import { UpdateInfoFormComponent } from './components/update-info-form/update-info-form.component';
+import { UpdateBioFormComponent } from './components/update-bio-form/update-bio-form.component';
+import { UploadProfileImageFormComponent } from './components/upload-profile-image-form/upload-profile-image-form.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,9 @@ import { UpdateInfoFormComponent } from './components/update-info-form/update-in
     HomePageComponent,
     FriendsListComponent,
     UserProfileComponent,
-    UpdateInfoFormComponent
+    UpdateInfoFormComponent,
+    UpdateBioFormComponent,
+    UploadProfileImageFormComponent
   ],
   imports: [
     BrowserModule,

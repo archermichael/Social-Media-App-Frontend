@@ -1,0 +1,18 @@
+<div class="modal-header">
+  <div>
+    <h4 class="modal-title">Descibe yourself...</h4>
+  </div>
+  <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+    <span aria-hidden="true">&times;</span>
+  </button>
+  <div class="modal-body">
+    <div class="update-bio">
+        <textarea name="bio"
+                  rows="4"
+                  [(ngModel)]="bio"></textarea>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-success" (click)="updateBio()">Update Bio</button>
+  </div>
+</div>

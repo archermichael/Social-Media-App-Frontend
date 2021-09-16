@@ -31,4 +31,8 @@ export class UserService {
   getFriendById(id: number): Observable<any> {
     return this.http.get<User>(this.apiUrl + "/" + id)
   }
+
+  updateUser(user: User): Observable<any> {
+    return this.http.patch<User>(this.apiUrl + "/update", user)
+  }
 }
