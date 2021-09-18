@@ -1,6 +1,6 @@
-<app-navbar></app-navbar>
+<app-navbar (filterUsers)="filterFriends($event)"></app-navbar>
 <div class="page-body">
-  <app-friends-list></app-friends-list>
+  <app-friends-list [users]="displayedFriends"></app-friends-list>
   <div>
     <app-post-feed [currentUser]="loggedInUser" [homePage]="true" [posts]="posts"></app-post-feed>
   </div>

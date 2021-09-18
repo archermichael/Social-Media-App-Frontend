@@ -16,8 +16,10 @@ import { UploadProfileImageFormComponent } from '../upload-profile-image-form/up
 })
 export class UserProfileComponent implements OnInit {
   posts: Post[] = [];
+  users: User[] = [];
+  friends: User[] = [];
+  showFriends: boolean = false;
   faCamera = faCamera;
-  pathId: number;
   currentProfileUser: User = {userId: 0, username: "", password: ""};
   loggedInUser: User;
 
@@ -25,10 +27,13 @@ export class UserProfileComponent implements OnInit {
 
   ngOnInit(): void {
     this.loggedInUser = JSON.parse(sessionStorage.getItem('loggedInUser') || '{}')
-    this.pathId = Number(this.route.snapshot.paramMap.get('id'))
-    this.userService.getFriendById(this.pathId).subscribe((res) => {
-      this.currentProfileUser = res.data
-      this.postService.getPostsByUserId(this.currentProfileUser.userId || 0).subscribe(res => this.posts = res.data)
+    this.route.params.subscribe(params => {
+      const id = +params['id']
+      this.getCurrentUser(id)
+    })
+    this.userService.getFriends().subscribe(users => {
+      this.friends = users.data.filter((friend: User) => friend.userId != this.loggedInUser.userId)
+      this.users = users.data.filter((friend: User) => friend.userId != this.loggedInUser.userId)
     })
   }
 
@@ -40,16 +45,28 @@ export class UserProfileComponent implements OnInit {
   }
 
   openUpdateBioForm(): void {
-    const modalRef = this.modalService.open(UpdateBioFormComponent, { centered: true, size: 'sm' });
+    const modalRef = this.modalService.open(UpdateBioFormComponent, { centered: true, size: 'md' });
     modalRef.componentInstance.bioUpdated.subscribe((user: User) => {
       this.currentProfileUser = user;
     })
   }
 
   openUpdateProfileImageForm(): void {
-    const modalRef = this.modalService.open(UploadProfileImageFormComponent, { centered: true, size: 'sm' });
+    const modalRef = this.modalService.open(UploadProfileImageFormComponent, { centered: true, size: 'md' });
     modalRef.componentInstance.profileImageUpdated.subscribe((user: User) => {
       this.currentProfileUser = user;
     })
+  }
+
+  getCurrentUser(id: number): void {
+    this.userService.getFriendById(id).subscribe((res) => {
+      this.currentProfileUser = res.data
+      this.postService.getPostsByUserId(this.currentProfileUser.userId || 0).subscribe(res => this.posts = res.data)
+    })
+  }
+
+  filterFriends(event: any){
+    event.length == 0 ? this.showFriends = false : this.showFriends = true
+    this.friends = this.users.filter(friend => (friend.userFirstName?.toLowerCase().startsWith(event.toLowerCase())) || (friend.userLastName?.toLowerCase().startsWith(event.toLowerCase())))
   }
 }

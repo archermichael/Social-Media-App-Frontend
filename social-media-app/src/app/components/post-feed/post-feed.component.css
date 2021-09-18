@@ -25,6 +25,11 @@
     height: 40px;
     padding: 0 12px;
     width: 100%;
+    transition: all .2s ease;
+}
+
+.round-input:hover {
+    filter: brightness(90%);
 }
 
 .round-input:focus, input:focus {
@@ -38,6 +43,11 @@
     border-radius: 50%;
     box-shadow: 0 1px 2px rgba(0, 0, 0, .2);
     cursor: pointer;
+    transition: all .2s ease;
+}
+
+.profile-pic:hover {
+    filter: brightness(90%);
 }
 
 .new-post-input {

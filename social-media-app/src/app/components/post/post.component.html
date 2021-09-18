@@ -4,7 +4,7 @@
             <img [src]="changedUser.userId == post.user.userId ? changedUser.userProfileImage : post.user.userProfileImage" class="profile-image">
         </div>
         <div class="flex-column">
-            <span class="post-author">{{ changedUser.userId == post.user.userId ? 
+            <span class="post-author" routerLink="/user/{{post.user.userId}}">{{ changedUser.userId == post.user.userId ? 
                       (changedUser.userFirstName + " " + changedUser.userLastName) : (post.user.userFirstName + " " + post.user.userLastName) }}</span>
             <span class="post-date">{{ post.postCreatedDate }}</span>
         </div>

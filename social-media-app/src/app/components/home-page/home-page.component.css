@@ -8,6 +8,7 @@
 
 app-friends-list {
     max-height: 100vh;
+    overflow-y: auto;
 }
 
 @media only screen and (min-width: 970px){

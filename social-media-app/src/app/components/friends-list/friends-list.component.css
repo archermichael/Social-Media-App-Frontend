@@ -1,5 +1,18 @@
+.friend-feed.profile-page {
+    background-color: white;
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+    padding: 10px 0;
+    top: 62px;
+}
+
+.friend-feed.show {
+    display: block;
+}
+
 .friend-feed {
     display: none;
+    z-index: 2;
     position: fixed;
     left: 0;
     top: 80px;

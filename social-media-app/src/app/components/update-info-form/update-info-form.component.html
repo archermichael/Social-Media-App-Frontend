@@ -7,6 +7,6 @@
     <input [class]="{editing: editingInfo}" name="firstName" type="text" [(ngModel)]="firstName" [attr.disabled]="!editingInfo ? true : null"/>
     <label for="lastName">Last Name</label>
     <input [class]="{editing: editingInfo}" name="lastName" type="text" [(ngModel)]="lastName" [attr.disabled]="!editingInfo ? true : null"/>
-    <div *ngIf="!editingInfo" class="btn btn-success update-btn" (click)="editInfo()">Edit</div>
-    <div *ngIf="editingInfo" class="btn btn-success update-btn" (click)="saveInfo()">Save</div>
+    <div *ngIf="!editingInfo" class="btn btn-primary update-btn" (click)="editInfo()">Edit</div>
+    <div *ngIf="editingInfo" class="btn btn-primary update-btn" (click)="saveInfo()">Save</div>
 </div>

@@ -1,4 +1,5 @@
-<app-navbar></app-navbar>
+<app-navbar (filterUsers)="filterFriends($event)"></app-navbar>
+<app-friends-list [profilePage]="true" [showFriends]="showFriends" [users]="friends"></app-friends-list>
 <div class="background-container">
     <div class="header">
         <div class="header-banner">

@@ -1,10 +1,19 @@
-input.form-control.mr-sm-2 {
+input.mr-sm-2 {
     border-radius: 20px;
     background-color: #f0f2f5 !important;
     padding: 0 30px;
     height: 40px;
     border: none;
     padding-bottom: 3px;
+    transition: all .2s ease;
+}
+
+input.mr-sm-2:hover {
+    filter: brightness(90%);
+}
+
+input.mr-sm-2:focus {
+    outline: none;
 }
 
 nav {
@@ -18,10 +27,47 @@ a {
     cursor: pointer;
 }
 
+.profile-pic {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all .2s ease;
+}
+
+.profile-pic:hover {
+    filter: brightness(90%);
+}
+
+.nav-buttons {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
 fa-icon {
     position: absolute;
     bottom: 28%;
     left: 24px;
     z-index: 2;
     color: rgba(0,0,0,.2);
+}
+
+fa-icon.home {
+    position: static;
+    color: rgba(0,0,0,.2);
+    font-size: 30px;
+    cursor: pointer;
+    margin-right: 40px;
+    transition: all .2s ease;
+}
+
+fa-icon.home:hover {
+    color: rgba(0,0,0,.4);
+}
+
+@media only screen and (min-width: 970px) {
+    .nav-buttons {
+        width: 300px;
+    }
 }

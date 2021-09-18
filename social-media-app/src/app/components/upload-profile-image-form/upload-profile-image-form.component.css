@@ -1,0 +1,22 @@
+.form-button-div {
+    display: flex;
+    width: 180px;
+    height: 40px;
+    border-radius: 6px;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.form-button-div:hover {
+    background-color: rgba(0,0,0,.05);;
+}
+
+.form-button-div p {
+    margin-left: 10px;
+    margin-bottom: 0;
+}
+
+fa-icon {
+    font-size: 20px;
+}

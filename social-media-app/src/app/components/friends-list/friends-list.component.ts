@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { User } from 'src/app/models/User';
-import { UserService } from 'src/app/services/user-service.service';
 
 @Component({
   selector: 'app-friends-list',
@@ -8,13 +8,17 @@ import { UserService } from 'src/app/services/user-service.service';
   styleUrls: ['./friends-list.component.css']
 })
 export class FriendsListComponent implements OnInit {
-  users: User[] = [];
+  @Input() users: User[] = [];
+  @Input() showFriends: boolean = true;
+  @Input() profilePage: boolean = false;
 
-  constructor(private userService: UserService) { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
-    console.log(JSON.parse(sessionStorage.getItem('loggedInUser') || '{}'))
-    this.userService.getFriends().subscribe(users => this.users = users.data.filter((user: User) => user.userId != JSON.parse(sessionStorage.getItem('loggedInUser') || '{}').userId))
+    
   }
 
+  getPath(): string {
+    return this.router.url
+  }
 }

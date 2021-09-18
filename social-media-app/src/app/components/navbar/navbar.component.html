@@ -1,7 +1,11 @@
 <nav class="navbar navbar-light bg-white">
     <div>
       <fa-icon [icon]="faSearch"></fa-icon>
-      <input class="form-control mr-sm-2" type="search" placeholder="Search Revbook" aria-label="Search">
+      <input (ngModelChange)="filterFriends($event)" class="mr-sm-2" type="search" placeholder="Search Revbook" aria-label="Search" [(ngModel)]="search">
+    </div>
+    <div class="nav-buttons">
+      <fa-icon class="home" [icon]="faHome" routerLink="/home"></fa-icon>
+      <img class="profile-pic" src="{{loggedInUser.userProfileImage}}" routerLink="/user/{{loggedInUser.userId}}"/>
     </div>
     <a (click)="logout()">Logout</a>
 </nav>
