@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { faCamera } from '@fortawesome/free-solid-svg-icons';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Post } from 'src/app/models/Post';
@@ -23,9 +23,12 @@ export class UserProfileComponent implements OnInit {
   currentProfileUser: User = {userId: 0, username: "", password: ""};
   loggedInUser: User;
 
-  constructor(private route: ActivatedRoute, private userService: UserService, private postService: PostService, private modalService: NgbModal) { }
+  constructor(private router: Router, private route: ActivatedRoute, private userService: UserService, private postService: PostService, private modalService: NgbModal) { }
 
   ngOnInit(): void {
+    if (!sessionStorage.getItem('loggedInUser')){
+      this.router.navigateByUrl('/')
+    }
     this.loggedInUser = JSON.parse(sessionStorage.getItem('loggedInUser') || '{}')
     this.route.params.subscribe(params => {
       const id = +params['id']
@@ -67,6 +70,6 @@ export class UserProfileComponent implements OnInit {
 
   filterFriends(event: any){
     event.length == 0 ? this.showFriends = false : this.showFriends = true
-    this.friends = this.users.filter(friend => (friend.userFirstName?.toLowerCase().startsWith(event.toLowerCase())) || (friend.userLastName?.toLowerCase().startsWith(event.toLowerCase())))
+    this.friends = this.users.filter(friend => ((friend.userFirstName?.toLowerCase() + " " + friend.userLastName?.toLowerCase()).includes(event)))
   }
 }

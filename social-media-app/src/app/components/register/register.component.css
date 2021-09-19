@@ -44,3 +44,7 @@ div.modal-content {
     height: 36px;
     width: 194px;
 }
+
+.hide {
+    display: none;
+}

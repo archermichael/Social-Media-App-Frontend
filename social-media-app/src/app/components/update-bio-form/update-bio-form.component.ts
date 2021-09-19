@@ -25,6 +25,7 @@ export class UpdateBioFormComponent implements OnInit {
       if (res.success){
         sessionStorage.setItem('loggedInUser', JSON.stringify(res.data))
         this.bioUpdated.emit(res.data)
+        this.activeModal.close()
       }
     })
   }

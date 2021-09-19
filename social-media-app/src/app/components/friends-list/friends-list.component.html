@@ -1,4 +1,4 @@
-<div class="friend-feed" [ngClass]="{'show': showFriends, 'profile-page': profilePage}">
+<div class="friend-feed" [ngClass]="{'hide': !showFriends, 'profile-page': profilePage}">
     <div class="friend-card" *ngFor="let user of users" routerLink="{{getPath() == '/home' ? '../user/'+user.userId : '../../user/'+user.userId}}"> 
         <img src={{user.userProfileImage}} />
         <p>{{ user.userFirstName }}</p>

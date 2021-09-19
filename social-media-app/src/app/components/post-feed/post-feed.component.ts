@@ -5,6 +5,7 @@ import { User } from 'src/app/models/User';
 import { PostService } from 'src/app/services/post-service.service';
 import { UploadFileServiceService } from 'src/app/services/upload-file-service.service';
 import { faImages, faPlusSquare } from '@fortawesome/free-solid-svg-icons';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-post-feed',
@@ -17,13 +18,15 @@ export class PostFeedComponent implements OnInit {
   @Input() posts: Post[] = [];
   @Input() homePage: boolean = false;
   @Input() currentUser: User;
+  @Input() collectionSize: number;
   page: number = 1;
   newPostMessage: string = '';
   selectedFiles: FileList;
   postImageList: PostImage[] = [];
   pageSize: number = 20;
+  visitedPages: number[] = [1];
 
-  constructor(private uploadFileService: UploadFileServiceService, private postService: PostService) { }
+  constructor(private uploadFileService: UploadFileServiceService, private postService: PostService, private router: Router) { }
 
   ngOnInit(): void {
     this.currentUser = JSON.parse(sessionStorage.getItem('loggedInUser') || '{}')
@@ -62,7 +65,16 @@ export class PostFeedComponent implements OnInit {
     )
   }
 
-  pageChanged(): void {
-    console.log("page changed")
+  pageChanged(event: any): void {
+    if (!this.visitedPages.includes(event)){
+      this.visitedPages.push(event)
+      if (this.router.url == "/home") {
+        this.postService.getPostsByPage(event).subscribe(posts => {
+          for (const post of posts.data){
+            this.posts.push(post)
+          }
+        })
+      }
+    }
   }
 }

@@ -13,8 +13,16 @@ export class PostService {
 
   constructor(private http: HttpClient) { }
 
-  getAllPosts(): Observable<any> { // this will return an observable when endpoints for posts are setup
+  getAllPosts(): Observable<any> { 
     return this.http.get<any>(this.apiUrl)
+  }
+
+  getPostsByPage(page: number): Observable<any> { 
+    return this.http.get<any>(`${this.apiUrl}/pages/${page}`)
+  }
+
+  getPostCount(): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/count`)
   }
 
   createPost(post: Post): Observable<any> {

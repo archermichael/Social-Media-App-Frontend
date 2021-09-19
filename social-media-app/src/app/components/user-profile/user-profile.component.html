@@ -23,7 +23,7 @@
     <div class="page-body">
         <div class="page-content">
             <app-update-info-form *ngIf="currentProfileUser.userId == loggedInUser.userId" (updateUser)="updateProfile($event)"></app-update-info-form>
-            <app-post-feed [currentUser]="currentProfileUser" [posts]="posts"></app-post-feed>
+            <app-post-feed [collectionSize]="posts.length" [currentUser]="currentProfileUser" [posts]="posts"></app-post-feed>
         </div>
     </div>
 </div>

@@ -15,24 +15,29 @@ export class HomePageComponent implements OnInit {
   friends: User[] = [];
   displayedFriends: User[] = [];
   loggedInUser: User;
+  collectionSize: number;
   
 
   constructor(private postService: PostService, private router: Router, private userService: UserService) { }
 
   ngOnInit(): void {
-    this.loggedInUser = JSON.parse(sessionStorage.getItem('loggedInUser') || '{}')
-    this.userService.getFriends().subscribe((res) => {
-      this.friends = res.data.filter((friend: User) => friend.userId != this.loggedInUser.userId)
-      this.displayedFriends = res.data.filter((friend: User) => friend.userId != this.loggedInUser.userId)
-    })
     // if no session, navigate back to login screen
     if (!sessionStorage.getItem('loggedInUser')){
       this.router.navigateByUrl('/')
     }
-    this.postService.getAllPosts().subscribe(posts => this.posts = posts.data.reverse()); // reverse to show most recent posts on top
+    this.loggedInUser = JSON.parse(sessionStorage.getItem('loggedInUser') || '{}')
+    this.postService.getPostCount().subscribe(postCount => {
+      this.collectionSize = postCount.data 
+    })
+    this.postService.getPostsByPage(1).subscribe(posts => this.posts = posts.data); // reverse to show most recent posts on top
+    this.userService.getFriends().subscribe((res) => {
+      this.friends = res.data.filter((friend: User) => friend.userId != this.loggedInUser.userId)
+      this.displayedFriends = res.data.filter((friend: User) => friend.userId != this.loggedInUser.userId)
+    })
+    
   }
 
   filterFriends(event: any){
-    this.displayedFriends = this.friends.filter(friend => (friend.userFirstName?.toLowerCase().startsWith(event.toLowerCase())) || (friend.userLastName?.toLowerCase().startsWith(event.toLowerCase())))
+    this.displayedFriends = this.friends.filter(friend => ((friend.userFirstName?.toLowerCase() + " " + friend.userLastName?.toLowerCase()).includes(event)))
   }
 }

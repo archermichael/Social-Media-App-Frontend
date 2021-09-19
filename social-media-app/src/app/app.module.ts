@@ -19,6 +19,8 @@ import { UserProfileComponent } from './components/user-profile/user-profile.com
 import { UpdateInfoFormComponent } from './components/update-info-form/update-info-form.component';
 import { UpdateBioFormComponent } from './components/update-bio-form/update-bio-form.component';
 import { UploadProfileImageFormComponent } from './components/upload-profile-image-form/upload-profile-image-form.component';
+import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
+import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +36,9 @@ import { UploadProfileImageFormComponent } from './components/upload-profile-ima
     UserProfileComponent,
     UpdateInfoFormComponent,
     UpdateBioFormComponent,
-    UploadProfileImageFormComponent
+    UploadProfileImageFormComponent,
+    ForgotPasswordComponent,
+    ResetPasswordComponent
   ],
   imports: [
     BrowserModule,

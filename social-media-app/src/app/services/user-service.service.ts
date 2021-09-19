@@ -35,4 +35,16 @@ export class UserService {
   updateUser(user: User): Observable<any> {
     return this.http.patch<User>(this.apiUrl + "/update", user)
   }
+
+  sendResetPasswordLink(email: string): Observable<any> {
+    return this.http.post<User>("http://localhost:9000/api/forgot", {userEmail: email})
+  }
+
+  getUserByResetToken(resetToken: string): Observable<any> {
+    return this.http.get<User>(`http://localhost:9000/api/user/token/${resetToken}`)
+  }
+
+  updatePassword(user: User): Observable<any> {
+    return this.http.post<User>(`http://localhost:9000/api/user/resetPassword`, user)
+  }
 }

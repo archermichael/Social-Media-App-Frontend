@@ -15,8 +15,8 @@
               accept="image/*"
               #fileInput
       />
-      <div class="form-button-div">
-        <fa-icon class="text-primary" [icon]="faImages" (click)="fileInput.click()"></fa-icon>
+      <div class="form-button-div" (click)="fileInput.click()">
+        <fa-icon class="text-primary" [icon]="faImages"></fa-icon>
         <p>Photo/Image</p>
       </div>
   </div>

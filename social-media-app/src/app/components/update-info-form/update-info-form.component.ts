@@ -31,6 +31,7 @@ export class UpdateInfoFormComponent implements OnInit {
   }
 
   saveInfo(): void {
+    this.loggedInUser = JSON.parse(sessionStorage.getItem('loggedInUser') || '{}')
     this.userService.updateUser({userId: this.loggedInUser.userId, 
                                  username: this.username, 
                                  password: this.loggedInUser.password, 

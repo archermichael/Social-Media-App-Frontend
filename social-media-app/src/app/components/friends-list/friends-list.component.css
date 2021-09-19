@@ -10,6 +10,10 @@
     display: block;
 }
 
+.hide {
+    display: none;
+}
+
 .friend-feed {
     display: none;
     z-index: 2;
@@ -75,6 +79,10 @@
     .friend-card {
         width: 260px;
     }
+
+    .hide {
+        display: none;
+    }
 }
 
 @media only screen and (min-width: 1150px){
@@ -82,10 +90,18 @@
         position: fixed;
         margin-top: 0;
     }
+
+    .hide {
+        display: none;
+    }
 }
 
 @media only screen and (min-width: 1396px){
     .friend-card {
         width: 340px;
+    }
+
+    .hide {
+        display: none;
     }
 }
