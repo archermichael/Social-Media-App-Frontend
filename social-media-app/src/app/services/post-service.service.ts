@@ -9,7 +9,7 @@ import { Like } from '../models/Like';
   providedIn: 'root'
 })
 export class PostService {
-  private apiUrl = 'http://localhost:9000/api/posts'
+  private apiUrl = 'http://18.221.238.224:9000/api/posts'
 
   constructor(private http: HttpClient) { }
 
@@ -30,7 +30,7 @@ export class PostService {
   }
 
   createPostImage(postImage: PostImage): Observable<any> {
-    return this.http.post<PostImage>('http://localhost:9000/api/postImage', postImage)
+    return this.http.post<PostImage>('http://18.221.238.224:9000/api/postImage', postImage)
   }
 
   getPostsByUserId(id: number): Observable<any> {
@@ -38,10 +38,10 @@ export class PostService {
   }
 
   likePost(like: Like): Observable<any> {
-    return this.http.post<Like>('http://localhost:9000/api/likes', like)
+    return this.http.post<Like>('http://18.221.238.224:9000/api/likes', like)
   }
 
   unLikePost(id: number): Observable<any> {
-    return this.http.delete<any>(`http://localhost:9000/api/likes/${id}`)
+    return this.http.delete<any>(`http://18.221.238.224:9000/api/likes/${id}`)
   }
 }

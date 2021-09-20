@@ -7,17 +7,17 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class UserService {
-  private apiUrl = 'http://localhost:9000/api/user'
+  private apiUrl = 'http://18.221.238.224:9000/api/user'
 
   constructor(private http: HttpClient) { }
 
   login(user: User): Observable<any> {
-    return this.http.post<User>('http://localhost:9000/api/login', user)
+    return this.http.post<User>('http://18.221.238.224:9000/api/login', user)
   }
 
   logout(): Observable<any> {
     sessionStorage.removeItem('loggedInUser')
-    return this.http.post<any>('http://localhost:9000/api/logout', {})
+    return this.http.post<any>('http://18.221.238.224:9000/api/logout', {})
   }
 
   register(user: User): Observable<any> {
@@ -37,14 +37,14 @@ export class UserService {
   }
 
   sendResetPasswordLink(email: string): Observable<any> {
-    return this.http.post<User>("http://localhost:9000/api/forgot", {userEmail: email})
+    return this.http.post<User>("http://18.221.238.224:9000/api/forgot", {userEmail: email})
   }
 
   getUserByResetToken(resetToken: string): Observable<any> {
-    return this.http.get<User>(`http://localhost:9000/api/user/token/${resetToken}`)
+    return this.http.get<User>(`http://18.221.238.224:9000/api/user/token/${resetToken}`)
   }
 
   updatePassword(user: User): Observable<any> {
-    return this.http.post<User>(`http://localhost:9000/api/user/resetPassword`, user)
+    return this.http.post<User>(`http://18.221.238.224:9000/api/user/resetPassword`, user)
   }
 }
